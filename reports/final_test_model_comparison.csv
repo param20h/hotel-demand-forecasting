@@ -1,0 +1,7 @@
+Horizon,Model,MAE,RMSE,WAPE (%)
+7-day,Naive,2.619,7.463,13.231
+7-day,Random Forest,3.026,8.343,15.287
+7-day,XGBoost,3.16,8.253,15.966
+14-day,Naive,3.147,9.102,15.898
+14-day,Random Forest,3.393,9.481,17.143
+14-day,XGBoost,3.578,9.323,18.078

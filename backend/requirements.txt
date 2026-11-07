@@ -1,15 +1,13 @@
-fastapi
-uvicorn[standard]
-pydantic
-pandas
-numpy
-scikit-learn
-xgboost
-matplotlib
-seaborn
-plotly
-jupyter
-joblib
-pytest
-httpx
-python-multipart
+
+# API framework
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.3
+
+# Data processing
+pandas==3.1.1
+numpy==2.5.4
+
+# Testing
+pytest==9.2.0
+httpx==0.28.1

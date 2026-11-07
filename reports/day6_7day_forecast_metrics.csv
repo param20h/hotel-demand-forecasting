@@ -1,0 +1,4 @@
+Model,MAE,RMSE,WAPE (%)
+XGBoost,3.14,6.038,18.147
+Random Forest,3.193,6.392,18.45
+Naive,3.384,6.809,19.556

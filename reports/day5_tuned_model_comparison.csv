@@ -1,0 +1,4 @@
+Model,MAE,RMSE,WAPE (%)
+Naive Baseline,1.866,3.899,10.678
+Tuned XGBoost,1.945,3.732,11.129
+Tuned Random Forest,2.004,3.858,11.469
