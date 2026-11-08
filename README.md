@@ -566,33 +566,17 @@ Follow the project's preprocessing scripts or notebooks to reproduce it.
 
 ## Deployment
 
-The repository is configured for a Vercel frontend and a Render backend.
+The repository is configured as a Vercel multi-service project in [`vercel.json`](./vercel.json):
 
-### Deploy the backend to Render
+- `frontend` is the public Next.js service for all non-API paths.
+- `staycast-api` is the public FastAPI service under `/api/*`.
+- The frontend uses the same-origin `/api` path, so no backend hostname or service binding is needed for browser requests.
 
-1. In Render, choose **New → Blueprint** and select this repository.
-2. Render will detect [`render.yaml`](./render.yaml) and create the `staycast-api` web service.
-3. After the service is created, set `CORS_ORIGINS` to the final Vercel URL, for example:
+Import the repository into Vercel and use the inferred multi-service configuration. The tracked
+`data/processed/daily_room_demand.csv` file is required by the forecast and data-explorer endpoints.
+The existing [`render.yaml`](./render.yaml) remains available for deployments that keep the backend on Render.
 
-   ```text
-   https://staycast.vercel.app
-   ```
-
-4. Verify the backend at `https://YOUR-RENDER-SERVICE.onrender.com/health`.
-
-### Deploy the frontend to Vercel
-
-1. In Vercel, import this repository and set **Root Directory** to `frontend`.
-2. Keep the framework preset as **Next.js**. Vercel will use `npm run build`.
-3. Add the environment variable `NEXT_PUBLIC_API_URL` with the public Render URL:
-
-   ```text
-   https://YOUR-RENDER-SERVICE.onrender.com
-   ```
-
-4. Deploy the project, then copy its public URL into the Render `CORS_ORIGINS` variable and redeploy the backend.
-
-The tracked `data/processed/daily_room_demand.csv` file is required by the forecast and data-explorer endpoints. Raw source data and locally generated model artifacts are intentionally excluded from deployment.
+Raw source data and locally generated model artifacts are intentionally excluded from deployment.
 
 ---
 
